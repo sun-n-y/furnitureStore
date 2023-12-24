@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { Hero } from '../components';
+import { FeaturedProducts, Hero } from '../components';
 import authFetch from '../utils';
 
 const url = '/products?featured=true';
@@ -14,6 +13,7 @@ const Landing = () => {
   return (
     <>
       <Hero />
+      <FeaturedProducts />
     </>
   );
 };
