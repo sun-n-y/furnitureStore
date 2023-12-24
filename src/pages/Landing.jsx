@@ -2,20 +2,15 @@ import { useEffect } from 'react';
 import { Hero } from '../components';
 import authFetch from '../utils';
 
+const url = '/products?featured=true';
+
+export const loader = async () => {
+  const response = await authFetch(url);
+  const products = response.data.data;
+  return { products };
+};
+
 const Landing = () => {
-  const fetchData = async () => {
-    try {
-      const resp = await authFetch('/products');
-      console.log(resp);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   return (
     <>
       <Hero />
