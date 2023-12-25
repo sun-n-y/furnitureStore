@@ -1,5 +1,5 @@
 import { FeaturedProducts, Hero } from '../components';
-import authFetch from '../utils';
+import authFetch from '../utils/index';
 
 const url = '/products?featured=true';
 
