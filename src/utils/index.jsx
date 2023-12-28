@@ -24,3 +24,10 @@ export const generateAmountOptions = (number) => {
     );
   });
 };
+
+//
+export const getLayoutType = () => {
+  const comfyLayout = localStorage.getItem('comfyLayoutType');
+  const newLayout = comfyLayout ? comfyLayout : 'grid';
+  return newLayout;
+};
