@@ -4,16 +4,15 @@ import authFetch from '../utils';
 import { toast } from 'react-toastify';
 
 export const action = async ({ request }) => {
-  console.log(request);
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
-  console.log(data);
 
   try {
     const response = await authFetch.post('/auth/local/register', data);
     toast.success('account created successfully');
     return redirect('/login');
   } catch (error) {
+    console.log(error);
     const errorMessage =
       error?.response?.data?.error?.message ||
       'please double check your credentials';
