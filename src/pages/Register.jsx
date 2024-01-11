@@ -31,7 +31,7 @@ const Register = () => {
         <h4 className="text-center text-3xl font-bold">Register</h4>
         <FormInput type="text" label="username" name="username" />
         <FormInput type="text" label="email" name="email" />
-        <FormInput type="text" label="password" name="password" />
+        <FormInput type="password" label="password" name="password" />
         <div className="mt-4">
           <SubmitBtn text="REGISTER" />
         </div>
