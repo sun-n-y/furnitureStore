@@ -4,10 +4,20 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../features/cart/cartSlice';
 
+const singleProductQuery = (id) => {
+  //need to add id to query key, otherwise they will all be treated as one query.
+  return {
+    queryKey: ['singleProduct', id],
+    queryFn: () => authFetch(`/products/${id}`),
+  };
+};
+
 export const loader =
   (queryClient) =>
   async ({ params }) => {
-    const response = await authFetch(`/products/${params.id}`);
+    const response = await queryClient.ensureQueryData(
+      singleProductQuery(params.id)
+    );
 
     return { product: response.data.data };
   };
